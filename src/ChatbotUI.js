@@ -14,7 +14,14 @@ export default function ChatbotUI() {
     setMessages(updatedMessages);
 
     try {
-      const response = await fetch('/api/getFlightSuggestions', {
+      const response = await fetch('https://chatbot-backend-production-8313.up.railway.app/api/getFlightSuggestions', {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json',
+  },
+  body: JSON.stringify({ message: input }),
+});
+
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ message: input })
